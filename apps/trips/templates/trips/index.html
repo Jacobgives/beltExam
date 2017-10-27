@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>Dash</title>
+  </head>
+  <body>
+    <h4><a href={% url 'login:home' %}>Logout</a></h4>
+    <h4><a href={% url 'trips:create' %}>Create Trip</a></h4>
+
+    <table>
+
+      <h3>Your Itenerary</h3>
+      <tr>
+        <th>Destination </th>
+        <th> Departure </th>
+        <th> Return </th>
+        <th> Plan</th>
+      </tr>
+      {%for trip in tripsu%}
+        <tr>
+          <td><a href= "{% url 'trips:show' id=trip.id  %}" method="post">{{trip.name}}</a></td>
+          <td>{{trip.uusers.name}}</td>
+          <td>{{trip.c_date}}</td>
+          <td>{{trip.plan}}</td>
+      {%endfor%}
+      </tr>
+    </table>
+    <table>
+      <h3>Trips planned by other users</h3>
+      <tr>
+        <th>Item</th>
+        <th>Added_By</th>
+        <th>Date_Added</th>
+        <th>Action</th>
+      </tr>
+      {%for trip in tripso%}
+        <tr>
+          <td><a href={% url 'trips:show' id=trip.id %} method = "post">{{trip.name}}</a></td>
+          <td>{{trip.uusers.name}}</td>
+          <td>{{trip.c_date}}</td>
+          <td><a href={% url 'trips:add' id=trip.id  %} method="post">Join</a></td>
+      {%endfor%}
+      </tr>
+    </table>
+  </body>
+</html>

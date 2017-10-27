@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>Create a trip!</title>
+  </head>
+  <body>
+    <h4><a href="{%url 'login:home'%}">Logout</a></h4>
+    <h3>Item:</h3>
+    <form class="" action= " {%url 'dash:createa'%}"  method="post">
+      {%csrf_token%}
+      <input type="text" name="newtrip" value="">
+      <input type="TextField" name="plan" value="">
+      <input type="datetime" name="s_date" value="">
+      <input type="datetime" name="e_date" value="">
+      <input type="submit" name="" value="Create this trip">
+    </form>
+  </body>
+</html>

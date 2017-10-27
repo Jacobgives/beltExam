@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>Item</title>
+  </head>
+  <body>
+    <h4><a href= "{% url 'login:home' %}" >Logout</a></h4>
+    <h4><a href= "{% url 'trips:index' %}" >Trips</a></h4>
+    <h3>destination: {{name}} </h3>
+    <h3>planned by: {{uuser}} </h3>
+    <h3>these people will be attending:</h3>
+    {% for user in users %}
+      <h4> {{ user.name }} </h4>
+    {%endfor%}
+    <h4>description: {{plan}} </h4>
+    <h4>Travelling from: {{s_date}} to: {{e_date}}</h4>
+  </body>
+</html>

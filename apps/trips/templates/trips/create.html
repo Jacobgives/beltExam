@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>Create an item!</title>
+  </head>
+  <body>
+    <h4><a href="{%url 'login:home'%}">Logout</a></h4>
+    <h4><a href= "{% url 'trips:index' %}" >Trips</a></h4>
+    <h3>Item:</h3>
+    <form class="" action= " {%url 'trips:createa'%}"  method="post">
+      {%csrf_token%}
+      <p>Destination: <input type="text" name="newtrip" value=""></p>
+      <p>Plan: <textarea name="plan" rows="8" cols="80"></textarea></p>
+      <p>When will you depart? (YYYY-MM-DD hh:mm)<input type="datetime" name="s_date" value=""></p>
+      <p>When will you return?<input type="datetime" name="e_date" value=""></p>
+      <input type="submit" name="" value="Create this item">
+    </form>
+  </body>
+</html>
